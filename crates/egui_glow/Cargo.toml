@@ -72,7 +72,7 @@ wasm-bindgen = { version = "0.2" }
 
 
 [dev-dependencies]
-glutin = "0.29.0" # examples/pure_glow
+glutin = { git = 'https://github.com/zphixon/glutin', branch = 'my-winit' }
 
 
 [[example]]

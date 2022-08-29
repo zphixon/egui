@@ -122,7 +122,7 @@ dependencies = [
  "objc",
  "objc-foundation",
  "objc_id",
- "parking_lot",
+ "parking_lot 0.12.1",
  "thiserror",
  "winapi",
  "x11rb",
@@ -163,7 +163,7 @@ checksum = "6d26004fe83b2d1cd3a97609b21e39f9a31535822210fe83205d2ce48866ea61"
 dependencies = [
  "event-listener",
  "futures-core",
- "parking_lot",
+ "parking_lot 0.12.1",
 ]
 
 [[package]]
@@ -1295,19 +1295,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "egui_glium"
-version = "0.19.0"
-dependencies = [
- "ahash 0.8.0",
- "bytemuck",
- "document-features",
- "egui",
- "egui-winit",
- "glium",
- "image",
-]
-
-[[package]]
 name = "egui_glow"
 version = "0.19.0"
 dependencies = [
@@ -1423,7 +1410,7 @@ dependencies = [
  "document-features",
  "emath",
  "nohash-hasher",
- "parking_lot",
+ "parking_lot 0.12.1",
  "serde",
 ]
 
@@ -1763,22 +1750,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "glium"
-version = "0.32.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2766728ecb86014b91d3d687614b32d65aacbbdc887f424a7b03cba3ab593bf"
-dependencies = [
- "backtrace",
- "fnv",
- "gl_generator",
- "glutin",
- "lazy_static",
- "memoffset",
- "smallvec",
- "takeable-option",
-]
-
-[[package]]
 name = "glob"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1798,9 +1769,8 @@ dependencies = [
 
 [[package]]
 name = "glutin"
-version = "0.29.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "444c9ad294fdcaf20ccf6726b78f380b5450275540c9b68ab62f49726ad1c713"
+version = "0.28.0"
+source = "git+https://github.com/zphixon/glutin?branch=my-winit#4a78efa6d5018282206f849c0ce81a893fe74dac"
 dependencies = [
  "cgl",
  "cocoa",
@@ -1809,13 +1779,13 @@ dependencies = [
  "glutin_gles2_sys",
  "glutin_glx_sys",
  "glutin_wgl_sys",
+ "lazy_static",
  "libloading",
  "log",
  "objc",
- "once_cell",
  "osmesa-sys",
- "parking_lot",
- "raw-window-handle 0.5.0",
+ "parking_lot 0.11.2",
+ "raw-window-handle 0.4.3",
  "wayland-client",
  "wayland-egl",
  "winapi",
@@ -1824,9 +1794,8 @@ dependencies = [
 
 [[package]]
 name = "glutin_egl_sys"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68900f84b471f31ea1d1355567eb865a2cf446294f06cef8d653ed7bcf5f013d"
+version = "0.1.5"
+source = "git+https://github.com/zphixon/glutin?branch=my-winit#4a78efa6d5018282206f849c0ce81a893fe74dac"
 dependencies = [
  "gl_generator",
  "winapi",
@@ -1835,8 +1804,7 @@ dependencies = [
 [[package]]
 name = "glutin_gles2_sys"
 version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8094e708b730a7c8a1954f4f8a31880af00eb8a1c5b5bf85d28a0a3c6d69103"
+source = "git+https://github.com/zphixon/glutin?branch=my-winit#4a78efa6d5018282206f849c0ce81a893fe74dac"
 dependencies = [
  "gl_generator",
  "objc",
@@ -1844,9 +1812,8 @@ dependencies = [
 
 [[package]]
 name = "glutin_glx_sys"
-version = "0.1.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d93d0575865098580c5b3a423188cd959419912ea60b1e48e8b3b526f6d02468"
+version = "0.1.7"
+source = "git+https://github.com/zphixon/glutin?branch=my-winit#4a78efa6d5018282206f849c0ce81a893fe74dac"
 dependencies = [
  "gl_generator",
  "x11-dl",
@@ -1855,8 +1822,7 @@ dependencies = [
 [[package]]
 name = "glutin_wgl_sys"
 version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3da5951a1569dbab865c6f2a863efafff193a93caf05538d193e9e3816d21696"
+source = "git+https://github.com/zphixon/glutin?branch=my-winit#4a78efa6d5018282206f849c0ce81a893fe74dac"
 dependencies = [
  "gl_generator",
 ]
@@ -2396,7 +2362,7 @@ dependencies = [
  "ndk-macro",
  "ndk-sys 0.4.0",
  "once_cell",
- "parking_lot",
+ "parking_lot 0.12.1",
 ]
 
 [[package]]
@@ -2679,12 +2645,37 @@ checksum = "427c3892f9e783d91cc128285287e70a59e206ca452770ece88a76f7a3eddd72"
 
 [[package]]
 name = "parking_lot"
+version = "0.11.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d17b78036a60663b797adeaee46f5c9dfebb86948d1255007a1d6be0271ff99"
+dependencies = [
+ "instant",
+ "lock_api",
+ "parking_lot_core 0.8.5",
+]
+
+[[package]]
+name = "parking_lot"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3742b2c103b9f06bc9fff0a37ff4912935851bee6d36f3c02bcc755bcfec228f"
 dependencies = [
  "lock_api",
- "parking_lot_core",
+ "parking_lot_core 0.9.3",
+]
+
+[[package]]
+name = "parking_lot_core"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d76e8e1493bcac0d2766c42737f34458f1c8c50c0d23bcb24ea953affb273216"
+dependencies = [
+ "cfg-if",
+ "instant",
+ "libc",
+ "redox_syscall",
+ "smallvec",
+ "winapi",
 ]
 
 [[package]]
@@ -2860,7 +2851,7 @@ dependencies = [
  "bincode",
  "byteorder",
  "once_cell",
- "parking_lot",
+ "parking_lot 0.12.1",
  "ruzstd",
  "serde",
  "zstd",
@@ -3604,12 +3595,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "takeable-option"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "36ae8932fcfea38b7d3883ae2ab357b0d57a02caaa18ebb4f5ece08beaec4aa0"
-
-[[package]]
 name = "tempfile"
 version = "3.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4324,7 +4309,7 @@ dependencies = [
  "js-sys",
  "log",
  "naga",
- "parking_lot",
+ "parking_lot 0.12.1",
  "raw-window-handle 0.4.3",
  "smallvec",
  "wasm-bindgen",
@@ -4350,7 +4335,7 @@ dependencies = [
  "fxhash",
  "log",
  "naga",
- "parking_lot",
+ "parking_lot 0.12.1",
  "profiling",
  "raw-window-handle 0.4.3",
  "smallvec",
@@ -4387,7 +4372,7 @@ dependencies = [
  "metal",
  "naga",
  "objc",
- "parking_lot",
+ "parking_lot 0.12.1",
  "profiling",
  "range-alloc",
  "raw-window-handle 0.4.3",
@@ -4597,8 +4582,7 @@ checksum = "f4dd6dc7df2d84cf7b33822ed5b86318fb1781948e9663bacd047fc9dd52259d"
 [[package]]
 name = "winit"
 version = "0.27.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83a8f3e9d742401efcfe833b8f84960397482ff049cb7bf59a112e14a4be97f7"
+source = "git+https://github.com/zphixon/winit?branch=pen-info2#2dc2c6ecb68b7bc888b62adfd3713144370f57f2"
 dependencies = [
  "bitflags",
  "cocoa",
@@ -4613,7 +4597,7 @@ dependencies = [
  "ndk-glue 0.7.0",
  "objc",
  "once_cell",
- "parking_lot",
+ "parking_lot 0.12.1",
  "percent-encoding",
  "raw-window-handle 0.4.3",
  "raw-window-handle 0.5.0",
