@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use egui::mutex::RwLock;
-use wgpu::{Adapter, CommandEncoder, Device, Queue, Surface, TextureView};
+use wgpu::{CommandEncoder, Device, Queue, TextureView};
 
 use crate::renderer;
 
@@ -63,11 +63,9 @@ impl Painter {
     fn ensure_render_state_for_surface(
         &mut self,
         device: &Device,
-        adapter: &Adapter,
-        surface: &Surface,
+        swapchain_format: wgpu::TextureFormat,
     ) {
         if self.render_state.is_none() {
-            let swapchain_format = surface.get_supported_formats(adapter)[0];
             let rs = self.init_render_state(device, swapchain_format);
             self.render_state = Some(rs);
         }
@@ -97,8 +95,8 @@ impl Painter {
     /// The raw Window handle associated with the given `window` must be a valid object to create a
     /// surface upon and must remain valid for the lifetime of the created surface. (The surface may
     /// be cleared by passing `None`).
-    pub fn set_window(&mut self, device: &Device, adapter: &Adapter, surface: &Surface) {
-        self.ensure_render_state_for_surface(device, adapter, surface);
+    pub fn set_window(&mut self, device: &Device, swapchain_format: wgpu::TextureFormat) {
+        self.ensure_render_state_for_surface(device, swapchain_format);
     }
 
     /// Returns the maximum texture dimension supported if known
