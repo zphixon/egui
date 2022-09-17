@@ -34,7 +34,7 @@ use winit::event_loop::EventLoopWindowTarget;
     target_os = "netbsd",
     target_os = "openbsd"
 ))]
-use winit::platform::unix::EventLoopWindowTargetExtUnix;
+use winit::platform::wayland::EventLoopWindowTargetExtWayland;
 
 pub fn native_pixels_per_point(window: &winit::window::Window) -> f32 {
     window.scale_factor() as f32
