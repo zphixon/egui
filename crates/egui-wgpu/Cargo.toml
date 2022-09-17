@@ -28,7 +28,7 @@ all-features = true
 
 
 [features]
-## Enable [`winit`](https://docs.rs/winit) integration.
+default = ['winit']
 winit = ["dep:pollster", "dep:winit"]
 
 
