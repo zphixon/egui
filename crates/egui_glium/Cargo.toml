@@ -50,7 +50,7 @@ ahash = { version = "0.8.1", default-features = false, features = [
   "std",
 ] }
 bytemuck = "1.7"
-glium = "0.32"
+glium = { git = 'https://github.com/zphixon/glium', branch = 'my-glutin' }
 
 #! ### Optional dependencies
 ## Enable this when generating docs.

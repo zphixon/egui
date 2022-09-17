@@ -387,6 +387,8 @@ impl State {
             | WindowEvent::Occluded(_)
             | WindowEvent::Resized(_)
             | WindowEvent::ThemeChanged(_)
+            | WindowEvent::TouchpadMagnify { .. }
+            | WindowEvent::TouchpadRotate { .. }
             | WindowEvent::TouchpadPressure { .. } => EventResponse {
                 repaint: true,
                 consumed: false,

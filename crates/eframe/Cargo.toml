@@ -87,12 +87,10 @@ serde = { version = "1", optional = true, features = ["derive"] }
 # -------------------------------------------
 # native:
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-egui-winit = { version = "0.20.0", path = "../egui-winit", default-features = false, features = [
-  "clipboard",
-  "links",
-] }
 raw-window-handle = { version = "0.5.0" }
-winit = "0.27.2"
+egui-winit = { version = "0.19.0", path = "../egui-winit", default-features = false, features = ["clipboard", "links"] }
+glutin = { git = 'https://github.com/zphixon/glutin', branch = 'my-winit' }
+winit = { git = 'https://github.com/zphixon/winit', branch = 'pen-info2' }
 
 # optional native:
 dark-light = { version = "0.2.1", optional = true }
